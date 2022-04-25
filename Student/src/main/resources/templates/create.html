@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Create student</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Create new Student</h1>
+        <form th:action="@{/student/save}" th:object="${student}" method="POST">
+            <input type="hidden" th:field="*{id}"/>
+            <!--<input type="hidden" th:field="${student.id}"/>-->
+            <table border="0">
+                    <tr>
+                        <td>Name</td>
+                        <td>: <input th:field="*{name}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>: <input th:field="*{email}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>: 
+                            <select th:field="*{gender}">
+                                <option value="true">Male</option>
+                                <option value="false">Female</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Create"/></td>
+                    </tr>
+            </table>
+
+        </form>
+    </body>
+</html>
