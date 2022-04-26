@@ -69,8 +69,8 @@ public class AccountController {
     @PostMapping(value="/save")
     public String save(Model model,
             @ModelAttribute("account") @Validated Account account,
-            @RequestParam("images") MultipartFile image,
             BindingResult result,
+            @RequestParam("images") MultipartFile image,
             final RedirectAttributes attribute)
     {
         //xu ly ket qua validate
@@ -102,5 +102,10 @@ public class AccountController {
         // luu vao db
         service.save(account);
         return "redirect:/account";
+    }
+    
+    @GetMapping(value="/login")
+    public String login(){
+        return "login";
     }
 }

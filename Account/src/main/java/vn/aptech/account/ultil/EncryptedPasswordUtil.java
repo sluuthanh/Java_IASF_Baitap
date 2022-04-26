@@ -5,6 +5,8 @@
  */
 package vn.aptech.account.ultil;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 /**
  *
  * @author Thanh Sang
@@ -12,5 +14,7 @@ package vn.aptech.account.ultil;
 public class EncryptedPasswordUtil {
     public static void main(String[] args) {
         String password = "123";
+        BCryptPasswordEncoder crypt = new BCryptPasswordEncoder();
+        System.out.println("Encrypted Password: "+crypt.encode(password));
     }
 }
