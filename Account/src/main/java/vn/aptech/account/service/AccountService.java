@@ -18,4 +18,5 @@ public interface AccountService {
     Optional<Account> findById(int id);
     Account save(Account acc);
     Account findByUsername(String username);
+    void deleteById(int id);
 }

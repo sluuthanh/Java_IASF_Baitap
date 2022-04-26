@@ -49,7 +49,12 @@ public class AccountServiceImpl implements AccountService, UserDetailsService{
     public Optional<Account> findById(int id) {
         return repo.findById(id);
     }
-
+    
+    @Override
+    public void deleteById(int id){
+        repo.deleteById(id);
+    }
+    
     @Override
     public Account findByUsername(String username) {
         return repo.findByUsername(username);
