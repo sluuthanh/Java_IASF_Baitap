@@ -1,0 +1,41 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package vn.aptech.mylayout.service.impl;
+
+import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import vn.aptech.mylayout.entity.Role;
+import vn.aptech.mylayout.repository.RoleRepository;
+import vn.aptech.mylayout.service.RoleService;
+
+/**
+ *
+ * @author Thanh Sang
+ */
+@Service
+public class RoleServiceImpl implements RoleService {
+
+    @Autowired
+    private RoleRepository repo;
+    
+    @Override
+    public List<Role> findAll() {
+        return repo.findAll();
+    }
+
+    @Override
+    public Optional<Role> findById(Integer id) {
+        return repo.findById(id);
+    }
+
+    @Override
+    public List<Role> findRoleByUsername(String username) {
+        return repo.findRoleByUsername(username);
+    }
+    
+}
