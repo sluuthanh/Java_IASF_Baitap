@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Index</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Order List</div>
+        <h4><a th:href="@{/create}">Create order</a></h4>
+        <form method="get"  th:action="@{/seach}">
+            <select name="code">
+                            <option th:each="customer: ${customers}" th:text="${customer.name}"
+                                    th:value="${customer.code}"  
+                                    >1</option>
+                        </select>
+            <input type="submit" value="Filter">
+        </form>
+<!--        <select>
+                <option th:each="customer: ${customers}" th:text="${customer.name}"
+                        th:value="${customer.code}" name="code"
+                        >1</option>
+            </select>-->
+        <table width="70%" style="margin-left: auto; margin-right:auto">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Dated</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item: ${orders}">
+                    <td th:text="${item.id}">1</td>
+                    <td th:text="${item.orderdated}">1</td>
+                    <td th:text="${item.productname}">1</td>
+                    <td th:text="${item.price}">1</td>
+                    <td th:text="${item.quantity}">1</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

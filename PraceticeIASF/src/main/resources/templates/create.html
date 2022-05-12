@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Create</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Create new account</div>
+        <form th:action="@{/save}" th:object="${order}" method="post">
+            <table width="60%">
+                <input type="hidden" th:field="*{id}">
+                <tr>
+                    <td><label>Order Date: </label>
+                        <input type="text" th:field="*{orderdated}" />
+                </tr>
+                <tr>
+                    <td><label>Product Name: </label>
+                        <input type="text" th:field="*{productname}" />
+                </tr>
+                <tr>
+                    <td><label>Price: </label>
+                        <input type="text" th:field="*{price}" />
+                </tr>
+                <tr>
+                    <td><label>Quantity: </label>
+                        <input type="text" th:field="*{quantity}" />
+                </tr>
+                
+                <tr>
+                    <td>
+                        <select th:field="*{code}" >
+                            <option th:each="customer: ${customers}" th:text="${customer.name}"
+                                    th:value="${customer.code}"  
+                                    >1</option>
+                        </select>
+                    </td>
+
+                </tr>
+
+                <tr> <td><input type="submit" value="Create"></td></tr>
+
+
+
+
+            </table>
+
+        </form>
+    </body>
+</html>

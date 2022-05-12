@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">    
+
+    <head>
+        <title>Index</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h4><a th:href="@{/create}">Create order</a></h4>
+        <form th:action="@{/search}">
+            <select  name="code">
+                <option selected disabled hidden style="display: none" value="">Select</option>
+                <option th:each="item1: ${customers}" th:value="${item1.code}" th:text="${item1.code}">c1</option>
+            </select>
+            <input type="submit" value="Filter"/>
+        </form>
+        <h1>Order List</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Dated</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--th:if="${orders!=null && orders.size()>0}"-->
+                <tr  th:each="item: ${orders}">
+                    <td th:text="${item.id}">1</td>
+                    <td th:text="${item.orderdated}">1</td>
+                    <td th:text="${item.productname}">1</td>
+                    <td th:text="${item.price}">1</td>
+                    <td th:text="${item.quantity}">1</td>
+                    <td>
+                        <a th:href="@{/update(id=${item.id})}">Update</a>
+                        <a th:href="@{/delete(id=${item.id})}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+</html>

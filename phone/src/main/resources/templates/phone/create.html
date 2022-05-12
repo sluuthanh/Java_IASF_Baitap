@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:if="${item.id==null}">Create</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Create new account</div>
+        <form th:action="@{/save}" th:object="${order}" method="post">
+            <table >
+                <input type="hidden" th:field="*{id}">
+                <tr>
+                    <td><label>Order Date: </label></td>
+                    <td>
+                        <input th:field="*{orderdated}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Product Name: </label>                    </td>
+
+                    <td>
+                        <input th:field="*{productname}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Price: </label>                    </td>
+
+                    <td>
+                        <input th:field="*{price}" />
+                    </td>
+                        
+                </tr>
+                <tr>
+                    <td><label>Quantity: </label>                    </td>
+
+                    <td>
+                        <input th:field="*{quantity}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Code: </td>
+                    <td>
+                        <select th:field="*{code}" >
+                            <option th:each="customer: ${customers}" th:text="${customer.code}"
+                                    th:value="${customer.name}"  
+                                    >1</option>
+                        </select>
+                    </td>
+
+                </tr>
+
+                <tr> <td><input type="submit" value="Create"></td></tr>
+
+
+
+
+            </table>
+
+        </form>
+    </body>
+</html>
