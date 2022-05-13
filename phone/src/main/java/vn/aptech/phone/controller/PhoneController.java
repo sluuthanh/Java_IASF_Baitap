@@ -27,6 +27,7 @@ import vn.aptech.phone.service.OrderService;
  * @author Thanh Sang
  */
 @Controller
+@RequestMapping(value="/phone")
 public class PhoneController {
     
     @Autowired

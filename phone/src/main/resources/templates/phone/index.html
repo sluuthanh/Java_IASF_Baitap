@@ -12,8 +12,8 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h4><a th:href="@{/create}">Create order</a></h4>
-        <form th:action="@{/search}">
+        <h4><a th:href="@{/phone/create}">Create order</a></h4>
+        <form th:action="@{/phone/search}">
             <select  name="code">
                 <option selected disabled hidden style="display: none" value="">Select</option>
                 <option th:each="item1: ${customers}" th:value="${item1.code}" th:text="${item1.code}">c1</option>
@@ -41,8 +41,8 @@ and open the template in the editor.
                     <td th:text="${item.price}">1</td>
                     <td th:text="${item.quantity}">1</td>
                     <td>
-                        <a th:href="@{/update(id=${item.id})}">Update</a>
-                        <a th:href="@{/delete(id=${item.id})}">Delete</a>
+                        <a th:href="@{/phone/update(id=${item.id})}">Update</a>
+                        <a th:href="@{/phone/delete(id=${item.id})}">Delete</a>
                     </td>
                 </tr>
             </tbody>

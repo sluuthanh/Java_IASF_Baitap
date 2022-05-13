@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+    <html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Create Account</h1>
+        <div th:if="${errorMessage!=null}" th:utext="${errorMessage}">errors</div>
+        <form th:action="@{/user/save}" th:object="${user}" method="post" enctype="multipart/form-data"1>
+            <table border="0">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>: <input th:field="*{username}">
+                            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">username</span>
+                        </th>
+                    </tr>
+                    
+                    <tr>
+                        <th>Password</th>
+                        <th>: <input th:field="*{password}">
+                            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                        </th>
+
+                    </tr>
+                    <tr>
+                        <th>Fullname</th>
+                        <th>: <input th:field="*{fullname}"></th>
+                    </tr>
+                    <tr>
+                        <th>Image</th>
+                        <th>: <input type="file" name="images"></th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>  <input type="submit" value="Create"></th>
+                    </tr>
+                </thead>
+            </table>
+
+        </form>
+    </body>
+</html>

@@ -26,5 +26,5 @@ public class UserModel {
     private String username;
     private String password;
     private String image;
-    private int roleId;
+    private String role;
 }

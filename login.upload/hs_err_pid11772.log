@@ -1,0 +1,212 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00000000610ab2db, pid=11772, tid=0x0000000000003010
+#
+# JRE version:  (8.0_291-b10) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.291-b10 mixed mode windows-amd64 compressed oops)
+# Problematic frame:
+# V  [jvm.dll+0x20b2db]
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001c2f38c4800):  JavaThread "main" [_thread_in_vm, id=12304, stack(0x0000005691100000,0x0000005691200000)]
+
+siginfo: ExceptionCode=0xc0000005, writing address 0x00000056911f8870
+
+Registers:
+RAX=0x0000000000000007, RBX=0x0000000000000007, RCX=0x00000056911f8870, RDX=0x0000000000006000
+RSP=0x00000056911fe870, RBP=0x00000056911fe970, RSI=0x0000000000000007, RDI=0x000001c2f9f94fd8
+R8 =0x0000000000000008, R9 =0x0000000000000009, R10=0x000001c2f38c2a70, R11=0x000001c2f9f94fd8
+R12=0x0000000000000000, R13=0x00000056911feb08, R14=0x00000056911febc0, R15=0x00000056911fe870
+RIP=0x00000000610ab2db, EFLAGS=0x0000000000010202
+
+Top of Stack: (sp=0x00000056911fe870)
+0x00000056911fe870:   000001c2f38c4800 0000000000000001
+0x00000056911fe880:   000001c2f9f94fd8 0000001400000000
+0x00000056911fe890:   0000000000000000 000001c200000007
+0x00000056911fe8a0:   00000000000003b1 0000000061130498
+0x00000056911fe8b0:   0000000a911fe900 000001c2f9f94fd8
+0x00000056911fe8c0:   000001c2f38c4800 000001c2800149a0
+0x00000056911fe8d0:   000001c2f38c4800 00000000610df044
+0x00000056911fe8e0:   0000000f0e213ef7 0000000060fb1b01
+0x00000056911fe8f0:   000001c2f9f93ad8 000001c2f9f93ad8
+0x00000056911fe900:   00000056911fe9e0 0000000060f039c3
+0x00000056911fe910:   000001c2f38c8890 00000000000003d8
+0x00000056911fe920:   000001c2f38c8be8 000001c2f38c3610
+0x00000056911fe930:   0000000100003a01 0000000060fb1976
+0x00000056911fe940:   000001c2f38c3610 0000000100003a01
+0x00000056911fe950:   0000000100003aa0 0000000000000000
+0x00000056911fe960:   0000000100014b40 0000000100014b40 
+
+Instructions: (pc=0x00000000610ab2db)
+0x00000000610ab2bb:   f8 7c 33 48 8b de e8 7a 9c 08 00 48 63 d0 ff c6
+0x00000000610ab2cb:   48 0f af d3 49 8b cf 48 63 c6 48 2b ca 48 ff c3
+0x00000000610ab2db:   c7 01 00 00 00 00 48 3b 05 c8 02 56 00 7e d7 48
+0x00000000610ab2eb:   8b 9d e8 00 00 00 48 8d 54 24 48 48 8d 4d 50 e8 
+
+
+Register to memory mapping:
+
+RAX=0x0000000000000007 is an unknown value
+RBX=0x0000000000000007 is an unknown value
+RCX=0x00000056911f8870 is pointing into the stack for thread: 0x000001c2f38c4800
+RDX=0x0000000000006000 is an unknown value
+RSP=0x00000056911fe870 is pointing into the stack for thread: 0x000001c2f38c4800
+RBP=0x00000056911fe970 is pointing into the stack for thread: 0x000001c2f38c4800
+RSI=0x0000000000000007 is an unknown value
+RDI={method} {0x000001c2f9f94fe0} '<clinit>' '()V' in 'java/security/AccessControlContext'
+R8 =0x0000000000000008 is an unknown value
+R9 =0x0000000000000009 is an unknown value
+R10=0x000001c2f38c2a70 is an unknown value
+R11={method} {0x000001c2f9f94fe0} '<clinit>' '()V' in 'java/security/AccessControlContext'
+R12=0x0000000000000000 is an unknown value
+R13=0x00000056911feb08 is pointing into the stack for thread: 0x000001c2f38c4800
+R14=0x00000056911febc0 is pointing into the stack for thread: 0x000001c2f38c4800
+R15=0x00000056911fe870 is pointing into the stack for thread: 0x000001c2f38c4800
+
+
+Stack: [0x0000005691100000,0x0000005691200000],  sp=0x00000056911fe870,  free space=1018k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x20b2db]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.security.AccessController.getStackAccessControlContext()Ljava/security/AccessControlContext;+0
+j  java.security.AccessController.getContext()Ljava/security/AccessControlContext;+0
+j  java.lang.Thread.init(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;JLjava/security/AccessControlContext;Z)V+156
+j  java.lang.Thread.init(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;J)V+8
+j  java.lang.Thread.<init>(Ljava/lang/ThreadGroup;Ljava/lang/String;)V+45
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+=>0x000001c2f38c4800 JavaThread "main" [_thread_in_vm, id=12304, stack(0x0000005691100000,0x0000005691200000)]
+
+Other Threads:
+  0x000001c2fb433000 VMThread [stack: 0x0000005691a00000,0x0000005691b00000] [id=13016]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x0000000083200000, size: 1998 MB, Compressed Oops mode: 32-bit
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x0000000100000000
+
+Heap:
+ PSYoungGen      total 37888K, used 655K [0x00000000d6600000, 0x00000000d9000000, 0x0000000100000000)
+  eden space 32768K, 2% used [0x00000000d6600000,0x00000000d66a3d80,0x00000000d8600000)
+  from space 5120K, 0% used [0x00000000d8b00000,0x00000000d8b00000,0x00000000d9000000)
+  to   space 5120K, 0% used [0x00000000d8600000,0x00000000d8600000,0x00000000d8b00000)
+ ParOldGen       total 86016K, used 0K [0x0000000083200000, 0x0000000088600000, 0x00000000d6600000)
+  object space 86016K, 0% used [0x0000000083200000,0x0000000083200000,0x0000000088600000)
+ Metaspace       used 830K, capacity 4480K, committed 4480K, reserved 1056768K
+  class space    used 83K, capacity 384K, committed 384K, reserved 1048576K
+
+Card table byte_map: [0x000001c2f5680000,0x000001c2f5a70000] byte_map_base: 0x000001c2f5267000
+
+Marking Bits: (ParMarkBitMap*) 0x0000000061687fe0
+ Begin Bits: [0x000001c2f5d10000, 0x000001c2f7c48000)
+ End Bits:   [0x000001c2f7c48000, 0x000001c2f9b80000)
+
+Polling page: 0x000001c2f3a80000
+
+CodeCache: size=245760Kb used=399Kb max_used=399Kb free=245360Kb
+ bounds [0x000001c280000000, 0x000001c280270000, 0x000001c28f000000]
+ total_blobs=78 nmethods=0 adapters=52
+ compilation: enabled
+
+Compilation events (0 events):
+No events
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 1.597 loading class java/lang/RuntimePermission
+Event: 1.597 loading class java/security/BasicPermission
+Event: 1.597 loading class java/security/Permission
+Event: 1.597 loading class java/security/Guard
+Event: 1.597 loading class java/security/Guard done
+Event: 1.597 loading class java/security/Permission done
+Event: 1.597 loading class java/security/BasicPermission done
+Event: 1.597 loading class java/lang/RuntimePermission done
+Event: 1.597 loading class java/security/AccessController
+Event: 1.597 loading class java/security/AccessController done
+
+
+Dynamic libraries:
+0x00007ff696500000 - 0x00007ff696547000 	C:\Program Files\Java\jdk1.8.0_291\bin\java.exe
+0x00007ffc72c30000 - 0x00007ffc72e25000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffc71fc0000 - 0x00007ffc7207d000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffc704c0000 - 0x00007ffc7078d000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffc71860000 - 0x00007ffc7190e000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffc72080000 - 0x00007ffc7211e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffc726b0000 - 0x00007ffc7274c000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffc715a0000 - 0x00007ffc716c5000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffc71e20000 - 0x00007ffc71fc0000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffc70490000 - 0x00007ffc704b2000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffc724d0000 - 0x00007ffc724fa000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffc70980000 - 0x00007ffc70a8b000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffc70a90000 - 0x00007ffc70b2d000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffc70b80000 - 0x00007ffc70c80000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffc57ca0000 - 0x00007ffc57f3a000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
+0x00007ffc71df0000 - 0x00007ffc71e20000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffc67de0000 - 0x00007ffc67df5000 	C:\Program Files\Java\jdk1.8.0_291\jre\bin\vcruntime140.dll
+0x00007ffc2bbc0000 - 0x00007ffc2bc5b000 	C:\Program Files\Java\jdk1.8.0_291\jre\bin\msvcp140.dll
+0x0000000060ea0000 - 0x0000000061700000 	C:\Program Files\Java\jdk1.8.0_291\jre\bin\server\jvm.dll
+0x00007ffc71590000 - 0x00007ffc71598000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffc652b0000 - 0x00007ffc652d7000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffc62330000 - 0x00007ffc6233a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffc67dd0000 - 0x00007ffc67dd9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffc72120000 - 0x00007ffc7218b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffc6e240000 - 0x00007ffc6e252000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffc67d80000 - 0x00007ffc67d90000 	C:\Program Files\Java\jdk1.8.0_291\jre\bin\verify.dll
+0x00007ffc67d50000 - 0x00007ffc67d7b000 	C:\Program Files\Java\jdk1.8.0_291\jre\bin\java.dll
+0x00007ffc67d30000 - 0x00007ffc67d48000 	C:\Program Files\Java\jdk1.8.0_291\jre\bin\zip.dll
+
+VM Arguments:
+jvm_args: -Dclassworlds.conf=C:\Program Files\NetBeans-12.4\netbeans\java\maven\bin\..\bin\m2.conf -Dmaven.home=C:\Program Files\NetBeans-12.4\netbeans\java\maven\bin\.. -Dlibrary.jansi.path=C:\Program Files\NetBeans-12.4\netbeans\java\maven\bin\..\lib\jansi-native -Dmaven.multiModuleProjectDirectory=D:\FPT-AptechSem4\3.IASF\Java_IASF_Baitap\login.upload 
+java_command: org.codehaus.plexus.classworlds.launcher.Launcher -Dspring-boot.run.jvmArguments=-noverify -XX:TieredStopAtLevel=1 -Dspring-boot.run.mainClass=vn.aptech.login.LoginApplication -Dexec.vmArgs= -Dexec.appArgs= -Dmaven.ext.class.path=C:\Program Files\NetBeans-12.4\netbeans\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 spring-boot:run
+java_class_path (initial): C:\Program Files\NetBeans-12.4\netbeans\java\maven\bin\..\boot\plexus-classworlds-2.6.0.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_291
+PATH=C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;D:\PHP_FPT\php;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;D:\PHP_FPT_xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\nodejs\;C:\Users\Thanh Sang\AppData\Local\Microsoft\WindowsApps;C:\Users\Thanh Sang\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Java\jdk-16\bin;C:\Users\Thanh Sang\AppData\Local\GitHubDesktop\bin;C:\Users\Thanh Sang\.dotnet\tools;C:\Users\Thanh Sang\AppData\Roaming\Composer\vendor\bin;C:\Users\Thanh Sang\AppData\Roaming\npm
+USERNAME=Thanh Sang
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 60 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 19041 (10.0.19041.1706)
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 60 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
+
+Memory: 4k page, physical 8182124k(1719128k free), swap 14529892k(231516k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.291-b10) for windows-amd64 JRE (1.8.0_291-b10), built on Apr  9 2021 00:02:00 by "java_re" with MS VC++ 15.9 (VS2017)
+
+time: Thu May 12 18:24:00 2022
+timezone: SE Asia Standard Time
+elapsed time: 1.670562 seconds (0d 0h 0m 1s)
+

@@ -30,7 +30,7 @@ import vn.aptech.phone.service.impl.AccountServiceImpl;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     
     @Autowired
-    private AccountServiceImpl accountService;
+    private AccountServiceImpl phoneService;
     
     @Bean
     public PasswordEncoder encodePassword(){
@@ -38,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     }
     
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
-        auth.userDetailsService(accountService).passwordEncoder(encodePassword());
+        auth.userDetailsService(phoneService).passwordEncoder(encodePassword());
     }
     
     @Bean
@@ -54,10 +54,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         // ko can login 
         http.authorizeHttpRequests().antMatchers("/login","/logout","/","/home").permitAll();
         // truy cap route:  => y/c login
-        http.authorizeHttpRequests().antMatchers("/account").authenticated();
+        http.authorizeHttpRequests().antMatchers("/phone").authenticated();
         
-        // muon vao account/create or save thi phai la role admin
-        http.authorizeHttpRequests().antMatchers("/account/create","/account/save").hasRole("ADMIN");
+        // muon vao phone/create or save thi phai la role admin
+        http.authorizeHttpRequests().antMatchers("/phone/create","/phone/save").hasRole("ADMIN");
         http.authorizeHttpRequests()
                 .and()
                 .formLogin()
@@ -65,7 +65,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .loginPage("/login")
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/home")
+                .defaultSuccessUrl("/phone/")
                 .failureUrl("/login?error=true")
                 // cau hinh cho Logout Page
                 .and()

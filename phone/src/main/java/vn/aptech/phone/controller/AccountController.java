@@ -18,16 +18,8 @@ import vn.aptech.phone.service.AccountService;
  * @author Administrator
  */
 @Controller
-@RequestMapping(value="/account")
 public class AccountController {
-    @Autowired
-    private AccountService service;
     
-     @GetMapping(value="")
-    public String index(Model model){
-        model.addAttribute("accounts", service.findAll());
-        return "account/index";
-    }
     @GetMapping(value="/login")
     public String login(Model model){
         return "login";

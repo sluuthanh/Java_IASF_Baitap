@@ -1,0 +1,86 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00000000610ab2db, pid=5856, tid=0x0000000000003050
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_291-b10) (build 1.8.0_291-b10)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.291-b10 mixed mode windows-amd64 compressed oops)
+# Problematic frame:
+# V  [jvm.dll+0x20b2db]
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000022d6db3a000):  JavaThread "main" [_thread_in_vm, id=12368, stack(0x000000ed6c700000,0x000000ed6c800000)]
+
+siginfo: ExceptionCode=0xc0000005, writing address 0x000000ed6c7f1f30
+
+Registers:
+RAX=0x0000000000000007, RBX=0x0000000000000007, RCX=0x000000ed6c7f1f30, RDX=0x0000000000006000
+RSP=0x000000ed6c7f7f30, RBP=0x000000ed6c7f8030, RSI=0x0000000000000007, RDI=0x0000022d7f614028
+R8 =0x000000000000002d, R9 =0x000000000000002e, R10=0x0000022d6db328a0, R11=0x0000022d7f614028
+R12=0x0000022d05db91a0, R13=0x000000ed6c7f8378, R14=0x000000ed6c7f8230, R15=0x000000ed6c7f7f30
+RIP=0x00000000610ab2db, EFLAGS=0x0000000000010202
+
+Top of Stack: (sp=0x000000ed6c7f7f30)
+0x000000ed6c7f7f30:   0000022d6db3a000 0000000000000001
+0x000000ed6c7f7f40:   0000022d7f614028 0000000060f6721a
+0x000000ed6c7f7f50:   0000022d7f614028 0000022d6db3a000
+0x000000ed6c7f7f60:   0000000000000000 00000000610b5657
+0x000000ed6c7f7f70:   0000000c00002301 0000022d7f614028
+0x000000ed6c7f7f80:   0000022d6db3a000 0000022d6f3b49a0
+0x000000ed6c7f7f90:   0000000000000001 0000000000000000
+0x000000ed6c7f7fa0:   0000022d7f614028 0000000000000001
+0x000000ed6c7f7fb0:   0000000000000006 0000022d6db3a000
+0x000000ed6c7f7fc0:   0000022d7f614028 0000022d6db3a000
+0x000000ed6c7f7fd0:   0000022d7f224630 0000022d6db3a000
+0x000000ed6c7f7fe0:   0000022d6db3a000 0000022d6db3a000
+0x000000ed6c7f7ff0:   0000000000000006 0000022d7f224630
+0x000000ed6c7f8000:   0000000100002368 0000000060f6c4a7
+0x000000ed6c7f8010:   0000022d05db91a0 000000ed6c7f8071
+0x000000ed6c7f8020:   0000022d7f614028 0000022d05e7b0f5 
+
+Instructions: (pc=0x00000000610ab2db)
+0x00000000610ab2bb:   f8 7c 33 48 8b de e8 7a 9c 08 00 48 63 d0 ff c6
+0x00000000610ab2cb:   48 0f af d3 49 8b cf 48 63 c6 48 2b ca 48 ff c3
+0x00000000610ab2db:   c7 01 00 00 00 00 48 3b 05 c8 02 56 00 7e d7 48
+0x00000000610ab2eb:   8b 9d e8 00 00 00 48 8d 54 24 48 48 8d 4d 50 e8 
+
+
+Register to memory mapping:
+
+RAX=0x0000000000000007 is an unknown value
+RBX=0x0000000000000007 is an unknown value
+RCX=0x000000ed6c7f1f30 is pointing into the stack for thread: 0x0000022d6db3a000
+RDX=0x0000000000006000 is an unknown value
+RSP=0x000000ed6c7f7f30 is pointing into the stack for thread: 0x0000022d6db3a000
+RBP=0x000000ed6c7f8030 is pointing into the stack for thread: 0x0000022d6db3a000
+RSI=0x0000000000000007 is an unknown value
+RDI={method} {0x0000022d7f614030} 'loadClass' '(Ljava/lang/String;)Ljava/lang/Class;' in 'org/codehaus/plexus/classworlds/realm/ClassRealm'
+R8 =0x000000000000002d is an unknown value
+R9 =0x000000000000002e is an unknown value
+R10=0x0000022d6db328a0 is an unknown value
+R11={method} {0x0000022d7f614030} 'loadClass' '(Ljava/lang/String;)Ljava/lang/Class;' in 'org/codehaus/plexus/classworlds/realm/ClassRealm'
+R12=0x0000022d05db91a0 is an unknown value
+R13=0x000000ed6c7f8378 is pointing into the stack for thread: 0x0000022d6db3a000
+R14=0x000000ed6c7f8230 is pointing into the stack for thread: 0x0000022d6db3a000
+R15=0x000000ed6c7f7f30 is pointing into the stack for thread: 0x0000022d6db3a000
+
+
+Stack: [0x000000ed6c700000,0x000000ed6c800000],  sp=0x000000ed6c7f7f30,  free space=991k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x20b2db]
+V  [jvm.dll+0x32e932]
+V  [jvm.dll+0x20c054]
+V  [jvm.dll+0x20be7a]
+V  [jvm.dll+0x83d1f]
+V  [jvm.dll+0x84f20]
+V  [jvm.dll+0x85852]
+V  [jvm.dll+0x5970a]
+V  [jvm.dll+0x847f2]
+V  [jvm.dll+0x18039c]
