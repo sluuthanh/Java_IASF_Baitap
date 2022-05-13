@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <a th:href="@{/create}">Create Staff</a>
+        <div>List Staff</div>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>BirthDay</th>
+                <th>Image</th>
+                <th>Department</th>
+            </tr>
+            <tr th:each="item:${list}">
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.age}"></td>
+                <td th:text="${item.gender ? 'Male' : 'Female'}"></td>
+                <td th:text="${item.birthday}"></td>
+                <td><img th:src="@{'images/' + ${item.image}}" style="width: 200px;height: 200px"/></td>
+                <td th:text="${item.department.name}"></td>
+            </tr>
+        </table>
+    </body>
+</html>

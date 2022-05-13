@@ -1,0 +1,66 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package vn.aptech.login.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+import vn.aptech.login.entity.Account;
+import vn.aptech.login.repository.AccountRepository;
+import vn.aptech.login.service.AccountService;
+
+/**
+ *
+ * @author nhta1
+ */
+@Service
+public class AccountServiceImpl implements AccountService,UserDetailsService {
+
+    @Autowired
+    private AccountRepository repo;
+    @Override
+    public List<Account> findAll() {
+        return repo.findAll();
+    }
+
+    @Override
+    public Optional<Account> findById(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Account save(Account account) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Account acc = repo.findByUsername(username);
+        if(acc == null){
+            throw new UsernameNotFoundException("User not found!");
+        }
+       
+        List<GrantedAuthority> authorities = new ArrayList<>();
+            GrantedAuthority au = new SimpleGrantedAuthority("ROLE_ADMIN");
+            authorities.add(au);
+        
+        boolean enabled= true;
+            boolean accountNonExpired = true;
+            boolean creadentialNonExpired = true;
+            boolean accountNonLocked = true;
+            
+            return new User(acc.getUsername(), acc.getPassword(), enabled, 
+            accountNonExpired, creadentialNonExpired, accountNonExpired, authorities);
+    }
+    
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Create Staff</div>
+        <form th:action="@{/save}" th:object="${staff}" method="post" enctype="multipart/form-data">
+            <input type="hidden" th:field="${staff.id}" />
+            <div>Name: <input th:field="${staff.name}" /></div>
+            <div>Age: <input th:field="${staff.age}" /></div>
+            <div>Gender: <input type="radio" value="True" th:field="${staff.gender}" />Male
+                <input type="radio" value="False" th:field="${staff.gender}" />Female
+            </div>
+            <div>Birthday: <input type="date" th:field="${staff.birthday}" /></div>
+            <div>Image: <input type="file" name="images" /></div>
+            <div>Department:
+                <select th:field="${staff.department}">
+                    <option th:each="dep:${deplist}" th:value="${dep.id}" th:text="${dep.name}"></option>
+                </select>
+            </div>
+            <div><input type="submit" value="Submit" /></div>
+        </form>
+    </body>
+</html>
